@@ -50,6 +50,7 @@ const Search = () => {
                 type="text" 
                 placeholder='محصول های خود را جستجو کنید'
                 onChange={handleSearch}
+                // onKeyDown={}
             />
             <img src={search} alt="search" />
             {showResults && <SearchResults/>}
