@@ -14,7 +14,7 @@ import handmade from '../svg_files/handmade.svg'
 /* style */
 import '../style/homePage.css'
 /* component */
-import {Header} from '../components/navigation'
+import {Header , BottomMenu} from '../components/navigation'
 
 const HomePage = () => {
     const homePageCategories = [
@@ -95,6 +95,7 @@ const HomePage = () => {
                     ))}
                 </section>
             </section>
+            <BottomMenu/>
         </>
      );
 }

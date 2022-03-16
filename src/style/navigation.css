@@ -100,4 +100,34 @@
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
+
+.bottom-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: fixed;
+  left: 3.2%;
+  right: 3.2%;
+  top: 89.78%;
+  bottom: 1.6%;
+  background: #F8F8F8;
+  -webkit-box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.bottom-menu img:hover {
+  background: #EFEFEF;
+  border-radius: 50px;
+  cursor: pointer;
+}
 /*# sourceMappingURL=navigation.css.map */
