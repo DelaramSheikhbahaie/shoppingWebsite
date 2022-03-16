@@ -23,5 +23,16 @@ const Search = () => {
         </div>
      );
 }
+
+const SearchResults = () => {
+    return ( 
+        <div className='blur-background'>
+            <div className='search-results-container'>
+
+            </div>
+        </div>
+        
+     );
+}
  
-export {Header , Search};
+export {Header , Search , SearchResults};
