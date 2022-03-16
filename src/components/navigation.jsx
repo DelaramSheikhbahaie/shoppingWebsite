@@ -1,4 +1,6 @@
 import { useState , useEffect} from 'react'
+import { useDispatch } from "react-redux";
+import { setProducts } from '../redux/actions/productActions'
 /* icons */
 import arrow from '../svg_files/arrow.svg'
 import search from '../svg_files/search.svg'
@@ -23,11 +25,10 @@ const Header = ({title}) => {
 }
 const Search = () => {
     const [searchValue, setSearchValue] = useState('')
-    
+
     const handleSearch = (e) =>{
-        if(e.target.value.length > 1){
+        if(e.target.value.length > 1)
             setSearchValue(e.target.value)
-        }
     }
     const reqOptions = {
         method: "Get",
@@ -43,7 +44,7 @@ const Search = () => {
             )
         .then((response) => response.json())
         .then((receivedData) => {
-            console.log(receivedData)
+            dispatch(setProducts(receivedData))
         });
     }
     useEffect(() => {
