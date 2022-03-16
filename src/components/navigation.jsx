@@ -1,3 +1,4 @@
+import { useState , useEffect} from 'react'
 /* icons */
 import arrow from '../svg_files/arrow.svg'
 import search from '../svg_files/search.svg'
@@ -6,6 +7,8 @@ import home from '../svg_files/home.svg'
 import heart from '../svg_files/heart.svg'
 /* style */
 import '../style/navigation.css'
+/* config */
+import Config from '../webpack.config'
 
 const Header = ({title}) => {
     return ( 
@@ -19,9 +22,41 @@ const Header = ({title}) => {
      );
 }
 const Search = () => {
+    const [searchValue, setSearchValue] = useState('')
+    
+    const handleSearch = (e) =>{
+        if(e.target.value.length > 1){
+            setSearchValue(e.target.value)
+        }
+    }
+    const reqOptions = {
+        method: "Get",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      };
+    const getProducts = () => {
+        fetch(
+            Config.ConfigData.serverURL +
+             `/product?search=${searchValue}`,
+              reqOptions
+            )
+        .then((response) => response.json())
+        .then((receivedData) => {
+            console.log(receivedData)
+        });
+    }
+    useEffect(() => {
+        getProducts()
+    }, [searchValue])
+
     return ( 
         <div className='search-container'>
-            <input type="text" placeholder='محصول های خود را جستجو کنید'/>
+            <input 
+                type="text" 
+                placeholder='محصول های خود را جستجو کنید'
+                onChange={handleSearch}
+            />
             <img src={search} alt="search" />
         </div>
      );
