@@ -46,6 +46,7 @@
   height: 40px;
   border: none;
   outline: none;
+  border-radius: 14px;
 }
 
 .search-container input::-webkit-input-placeholder {
