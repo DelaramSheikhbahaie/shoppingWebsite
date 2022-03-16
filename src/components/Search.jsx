@@ -1,4 +1,5 @@
-import { useState , useEffect} from 'react'
+import { useState , useEffect , useRef} from 'react'
+import { BrowserRouter as  Link , Redirect } from "react-router-dom";
 import { useDispatch , useSelector } from "react-redux";
 import { setProducts } from '../redux/actions/productActions'
 /* icon */
@@ -21,6 +22,11 @@ const Search = () => {
         }
         else{
             setShowResults(false)
+        }
+    }
+    const EnterHandler = (e) => {
+        if (e.key === "Enter") {
+          setShowResults(false)
         }
     }
     const reqOptions = {
@@ -50,7 +56,7 @@ const Search = () => {
                 type="text" 
                 placeholder='محصول های خود را جستجو کنید'
                 onChange={handleSearch}
-                // onKeyDown={}
+                onKeyPress={EnterHandler}
             />
             <img src={search} alt="search" />
             {showResults && <SearchResults/>}

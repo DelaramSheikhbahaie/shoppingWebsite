@@ -1,0 +1,23 @@
+.productList-container{
+    padding: 0 12px;
+}
+.preview-results{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #EDEDED;
+    div{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        img{
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin:0 0 8px 12px;
+        }
+    }
+    
+}

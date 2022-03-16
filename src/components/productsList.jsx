@@ -1,11 +1,24 @@
+import {useSelector } from "react-redux";
 /* component */
 import {Header , BottomMenu} from '../components/navigation'
+/* style */
+import '../style/productList.css'
 const ProductList = () => {
+    const products = useSelector(state => state.allReducers.products)
     return ( 
         <>
         <Header title="جستجو"/>
-        <section>
-            
+        <section className="productList-container">
+            <h5> تمام محصولات:</h5>
+            {products.map(({name , price , image} , index) =>(
+                <div className='preview-results' key={index}>
+                    <div>
+                        <img src={image} alt="" />
+                        <p>{name}</p>
+                    </div>
+                    <p>{price}</p>
+                </div>
+                ))}
         </section>
         <BottomMenu />
         </>

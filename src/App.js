@@ -6,7 +6,7 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route path ="/" element = {<HomePage/>} />
+          <Route path ="/" element = {<HomePage/>} />
           <Route path ="/products" element = {<ProductList/>} />
           {/* <Route path = "/product/:productId" element={<ProductDetail/>} /> */}
           <Route>404 Not Found!</Route>
