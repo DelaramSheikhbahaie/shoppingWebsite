@@ -8,7 +8,6 @@ import '../style/navigation.css'
 /* component */
 import { Search } from './Search'
 
-
 const Header = ({title}) => {
     return ( 
         <>

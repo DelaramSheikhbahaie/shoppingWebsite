@@ -14,6 +14,8 @@
         border: none;
         outline: none;
         border-radius: 14px;
+        font-weight: 700;
+        color: #8F8F8F;
     }
     input::placeholder{
         font-family: 'B Koodak';
@@ -25,17 +27,35 @@
     }
 }
 .blur-background{
-    position: relative;
-    background: rgba(0, 0, 0, 0.06);
-    backdrop-filter: blur(8px);
+    // position: absolute;
+    // width: 100%;
+    // height: 100%;
+    // background: rgba(0, 0, 0, 0.06);
+    // backdrop-filter: blur(8px);
 }
 .search-results-container{
     position: absolute;
-    width: 100%;
-    // left: 20px;
-    // top: 144px;
+    width: 84%;
+    left: 4%;
+    top: 122px;
     padding: 16px;
-    background: #FFFFFF;
+    background: #FFFFFF ;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+}
+.preview-results{
+    display: flex;
+    flex-direction: row;
+    font-family: 'B Koodak';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+}
+.preview-product-name{
+    color: #5B5B5B;
+}
+.preview-product-seller{
+    color: #8F8F8F;
+    margin-right: 20px;
 }
