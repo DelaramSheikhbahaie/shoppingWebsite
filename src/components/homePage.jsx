@@ -13,6 +13,8 @@ import vehicle from '../svg_files/vehicle.svg'
 import handmade from '../svg_files/handmade.svg'
 /* style */
 import '../style/homePage.css'
+/* component */
+import {Header} from '../components/navigation'
 
 const HomePage = () => {
     const homePageCategories = [
@@ -79,16 +81,19 @@ const HomePage = () => {
     ]
     return ( 
         <>
-            <h5 className='homepage-title'>دسته بندی های پیشنهادی</h5>
-            <section className='category_section'>
-                {homePageCategories.map(({title , icon , icon_background_class} , index)=>(
-                    <div className='category_container' key={index}>
-                        <div className={`category-image-section ${icon_background_class}`}>
-                            <img src={icon} alt="" />
+            <Header title="جستجو"/>
+            <section className='homePage-container'>
+                <h5 className='homepage-title'>دسته بندی های پیشنهادی</h5>
+                <section className='category_section'>
+                    {homePageCategories.map(({title , icon , icon_background_class} , index)=>(
+                        <div className='category_container' key={index}>
+                            <div className={`category-image-section ${icon_background_class}`}>
+                                <img src={icon} alt="" />
+                            </div>
+                            <h5>{title}</h5>
                         </div>
-                        <h5>{title}</h5>
-                    </div>
-                ))}
+                    ))}
+                </section>
             </section>
         </>
      );

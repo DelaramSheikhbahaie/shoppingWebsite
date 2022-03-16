@@ -1,0 +1,86 @@
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #FFFFFF;
+  padding: 10px 0;
+}
+
+.header p {
+  font-family: 'B Koodak';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #5B5B5B;
+  margin: auto;
+  margin-left: 45%;
+}
+
+.search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.04);
+          box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.04);
+  border-radius: 14px;
+  margin: 15px 12px 30px 12px;
+}
+
+.search-container input {
+  width: 88%;
+  height: 40px;
+  border: none;
+  outline: none;
+}
+
+.search-container input::-webkit-input-placeholder {
+  font-family: 'B Koodak';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #CCCCCC;
+}
+
+.search-container input:-ms-input-placeholder {
+  font-family: 'B Koodak';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #CCCCCC;
+}
+
+.search-container input::-ms-input-placeholder {
+  font-family: 'B Koodak';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #CCCCCC;
+}
+
+.search-container input::placeholder {
+  font-family: 'B Koodak';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #CCCCCC;
+}
+/*# sourceMappingURL=navigation.css.map */
