@@ -1,4 +1,5 @@
 import {useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 /* component */
 import {Header , BottomMenu} from '../components/navigation'
 /* style */
@@ -10,7 +11,7 @@ const ProductList = () => {
         <Header title="جستجو"/>
         <section className="productList-container">
             <h5> تمام محصولات:</h5>
-            {products.map(({name , price , image} , index) =>(
+            {products.map(({id , name , price , image} , index) =>(
                 <div className='preview-results' key={index}>
                     <div>
                         <img src={image} alt="" />
