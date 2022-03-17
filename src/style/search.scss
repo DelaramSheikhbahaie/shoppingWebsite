@@ -27,14 +27,14 @@
     }
 }
 .blur-background{
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100vh;
     top: 122px;
     left: 0;
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(8px);
-    z-index: 15;
+    z-index: 2;
 }
 .search-results-container{
     position: absolute;
@@ -64,13 +64,21 @@
             margin-right: 20px;
         }
     }
-    p{
+    .show-all-products{
         font-family: 'B Koodak';
         font-style: normal;
         font-weight: 700;
         font-size: 10px;
         text-align: right;
         text-decoration-line: underline;
+        color: #6C63FF;
+    }
+    .no-product-founded{
+        font-family: 'B Koodak';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        text-align: center;
         color: #6C63FF;
     }
 }
