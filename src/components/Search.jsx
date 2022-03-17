@@ -19,6 +19,7 @@ const Search = () => {
         if(e.target.value.length > 1){
             setSearchValue(e.target.value)
             setShowResults(true)
+            getAllProducts()
         }
         else{
             setShowResults(false)
@@ -27,7 +28,7 @@ const Search = () => {
     const EnterHandler = (e) => {
         if (e.key === "Enter") {
           setShowResults(false)
-          getAllProducts()
+        //   getAllProducts()
           navigate('/products')
         }
     }
