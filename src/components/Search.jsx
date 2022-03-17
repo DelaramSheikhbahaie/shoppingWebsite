@@ -1,7 +1,7 @@
-import { useState , useEffect , useRef} from 'react'
-import { BrowserRouter as  Link , Redirect } from "react-router-dom";
+import { useState , useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useDispatch , useSelector } from "react-redux";
-import { setProducts } from '../redux/actions/productActions'
+import { setProducts , setPreviwProducts } from '../redux/actions/productActions'
 /* icon */
 import search from '../svg_files/search.svg'
 /* style */
@@ -13,12 +13,12 @@ const Search = () => {
     const [searchValue, setSearchValue] = useState('')
     const [showResults, setShowResults] = useState(false)
     const dispatch = useDispatch()
+    const navigate = useNavigate();
 
     const handleSearch = (e) =>{
         if(e.target.value.length > 1){
             setSearchValue(e.target.value)
             setShowResults(true)
-            getProducts()
         }
         else{
             setShowResults(false)
@@ -27,6 +27,8 @@ const Search = () => {
     const EnterHandler = (e) => {
         if (e.key === "Enter") {
           setShowResults(false)
+          getAllProducts()
+          navigate('/products')
         }
     }
     const reqOptions = {
@@ -35,7 +37,7 @@ const Search = () => {
           "Content-Type": "application/json",
         }
       };
-    const getProducts = () => {
+    const getAllProducts = () => {
         fetch(
             Config.ConfigData.serverURL +
              `/product?search=${searchValue}`,
@@ -46,9 +48,9 @@ const Search = () => {
             dispatch(setProducts(receivedData))
         });
     }
-    useEffect(() => {
+    // useEffect(() => {
         
-    }, [searchValue])
+    // }, [searchValue])
 
     return ( 
         <div className='search-container'>
