@@ -14,7 +14,10 @@ const ProductList = () => {
     }
     return ( 
         <>
-        <Header title="جستجو"/>
+        <Header 
+                title="جستجو"
+                hasSearch={true}
+            />
         <section className="productList-container">
             <h5> تمام محصولات:</h5>
             {products.map(({id , name , price , image}) =>(

@@ -81,7 +81,10 @@ const HomePage = () => {
     ]
     return ( 
         <>
-            <Header title="جستجو"/>
+            <Header 
+                title="جستجو"
+                hasSearch={true}
+            />
             <section className='homePage-container'>
                 <h5 className='homepage-title'>دسته بندی های پیشنهادی</h5>
                 <section className='category_section'>

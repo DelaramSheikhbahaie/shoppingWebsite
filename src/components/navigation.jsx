@@ -8,14 +8,14 @@ import '../style/navigation.css'
 /* component */
 import { Search } from './Search'
 
-const Header = ({title}) => {
+const Header = ({title, hasSearch}) => {
     return ( 
         <>
             <div className='header'>
                 <img src={arrow} alt="" />
                 <p>{title}</p>
             </div>
-            <Search/>
+            {hasSearch && <Search/>}
         </>
      );
 }
