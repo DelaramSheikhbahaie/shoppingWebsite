@@ -1,17 +1,19 @@
-import { useState , useEffect} from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from "react-redux";
+import { setProducts , setPreviwProducts } from '../redux/actions/productActions'
+import { useDispatch , useSelector } from "react-redux";
+/* config */
+import Config from '../webpack.config'
 /* icon */
 import search from '../svg_files/search.svg'
 /* style */
 import '../style/search.css'
-import {getAllProducts} from '../apiCall'
 
 const Search = () => {
     const [searchValue, setSearchValue] = useState('')
     const [showResults, setShowResults] = useState(false)
-
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSearch = (e) =>{
         if(e.target.value.length > 1){
@@ -30,9 +32,23 @@ const Search = () => {
           navigate('/products')
         }
     }
-    // useEffect(() => {
-        
-    // }, [searchValue])
+    const reqOptions = {
+        method: "Get",
+        headers: {
+          "Content-Type": "application/json",
+        }
+    };
+    const getAllProducts = (searchValue) => {
+        fetch(
+            Config.ConfigData.serverURL +
+             `/product?search=${searchValue}`,
+              reqOptions
+            )
+        .then((response) => response.json())
+        .then((receivedData) => {
+            dispatch(setProducts(receivedData))
+        });
+    }
 
     return ( 
         <div className='search-container'>
