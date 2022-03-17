@@ -14,9 +14,9 @@ const ProductList = () => {
                 <div className='preview-results' key={index}>
                     <div>
                         <img src={image} alt="" />
-                        <p>{name}</p>
+                        <p className="product-name">{name}</p>
                     </div>
-                    <p>{price}</p>
+                    <p className="product-price">{price} $ </p>
                 </div>
                 ))}
         </section>

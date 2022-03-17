@@ -2,6 +2,15 @@
   padding: 0 12px;
 }
 
+.productList-container h5 {
+  font-family: 'B Koodak';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  color: #5B5B5B;
+}
+
 .preview-results {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,5 +47,23 @@
   height: 80px;
   border-radius: 10px;
   margin: 0 0 8px 12px;
+}
+
+.preview-results div .product-name {
+  color: #5B5B5B;
+  font-family: 'B Davat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.preview-results .product-price {
+  color: #3F089D;
+  font-family: 'B Koodak';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
 }
 /*# sourceMappingURL=productList.css.map */
