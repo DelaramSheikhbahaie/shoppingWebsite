@@ -28,7 +28,6 @@ const Search = () => {
     const EnterHandler = (e) => {
         if (e.key === "Enter") {
           setShowResults(false)
-        //   getAllProducts()
           navigate('/products')
         }
     }
@@ -59,24 +58,33 @@ const Search = () => {
                 onKeyPress={EnterHandler}
             />
             <img src={search} alt="search" />
-            {showResults && <SearchResults/>}
+            {showResults && <SearchResults setShowResults={setShowResults}/>}
         </div>
      );
 }
 
-const SearchResults = () => {
+const SearchResults = ({setShowResults}) => {
     const products = useSelector(state => state.allReducers.products)
+    const navigate = useNavigate();
+
+    const showAllProducts = () => {
+          setShowResults(false)
+          navigate('/products')
+    }
     return ( 
         <div className='blur-background'>
             <div className='search-results-container'>
                 {products.map(({name , seller} , index) =>(
                     index < 3 ?
-                        <div className='preview-results' key={index}>
-                            <p className='preview-product-name'>{name}</p>
-                            <p className='preview-product-seller'>{seller}</p>
-                        </div>
+                        <>
+                            <div className='preview-results' key={index}>
+                                <p className='preview-product-name'>{name}</p>
+                                <p className='preview-product-seller'>{seller}</p>
+                            </div>
+                        </>
                    :null
                 ))}
+                <p onClick={showAllProducts}>مشاهده ی همه ی محصولات</p>
             </div>
         </div>
      );

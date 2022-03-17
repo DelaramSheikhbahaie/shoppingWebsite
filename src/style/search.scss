@@ -27,35 +27,52 @@
     }
 }
 .blur-background{
-    // position: absolute;
-    // width: 100%;
-    // height: 100%;
-    // background: rgba(0, 0, 0, 0.06);
-    // backdrop-filter: blur(8px);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 122px;
+    left: 0;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(8px);
+    z-index: 15;
 }
 .search-results-container{
     position: absolute;
     width: 84%;
     left: 4%;
-    top: 122px;
+    top: 0;
     padding: 16px;
     background: #FFFFFF ;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    z-index: 1;
+    .preview-results{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        cursor: pointer;
+        font-family: 'B Koodak';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 0px;
+        .preview-product-name{
+            color: #5B5B5B;
+        }
+        .preview-product-seller{
+            color: #8F8F8F;
+            margin-right: 20px;
+        }
+    }
+    p{
+        font-family: 'B Koodak';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 10px;
+        text-align: right;
+        text-decoration-line: underline;
+        color: #6C63FF;
+    }
 }
-.preview-results{
-    display: flex;
-    flex-direction: row;
-    font-family: 'B Koodak';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 14px;
-}
-.preview-product-name{
-    color: #5B5B5B;
-}
-.preview-product-seller{
-    color: #8F8F8F;
-    margin-right: 20px;
-}
+
+
