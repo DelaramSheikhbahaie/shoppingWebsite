@@ -65,6 +65,19 @@
   width: 100%;
 }
 
+.details-container .product-info-section div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .details-container .add-btn {
   width: 335px;
   height: 50px;
@@ -89,5 +102,14 @@
   font-size: 14px;
   line-height: 34px;
   color: #8F8F8F;
+  margin-left: 100px;
+}
+
+.product-info {
+  font-family: 'B Koodak';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 34px;
+  color: #5B5B5B;
 }
 /*# sourceMappingURL=productDetails.css.map */

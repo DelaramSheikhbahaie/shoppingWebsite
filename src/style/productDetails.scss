@@ -39,6 +39,11 @@
     }
     .product-info-section{
         width: 100%;
+        div{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
     }
     .add-btn{
         width: 335px;
@@ -64,4 +69,12 @@
     font-size: 14px;
     line-height: 34px;
     color: #8F8F8F;
+    margin-left: 100px;
+}
+.product-info{
+    font-family: 'B Koodak';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 34px;
+    color: #5B5B5B;
 }
