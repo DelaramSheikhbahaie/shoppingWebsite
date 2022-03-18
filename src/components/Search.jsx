@@ -28,7 +28,7 @@ const Search = () => {
     const EnterHandler = (e) => {
         if (e.key === "Enter") {
           setShowResults(false)
-          navigate('/products')
+          navigate(`/products/${searchValue}`)
         }
     }
     const reqOptions = {
@@ -37,7 +37,7 @@ const Search = () => {
           "Content-Type": "application/json",
         }
     };
-    const getAllProducts = (searchValue) => {
+    const getAllProducts = () => {
         fetch(
             Config.ConfigData.serverURL +
              `/product?search=${searchValue}`,

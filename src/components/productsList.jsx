@@ -1,17 +1,44 @@
-import {useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch , useSelector } from "react-redux";
+/* config */
+import Config from '../webpack.config'
 /* component */
 import {Header , BottomMenu} from '../components/navigation'
+import { setProducts , setPreviwProducts } from '../redux/actions/productActions'
 /* style */
 import '../style/productList.css'
 const ProductList = () => {
     const products = useSelector(state => state.allReducers.products)
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { searchValue } = useParams();
 
     const showProductDetails = (productId) =>{
         navigate(`/products/${productId}`)
     }
+
+    const reqOptions = {
+        method: "Get",
+        headers: {
+          "Content-Type": "application/json",
+        }
+    };
+    const getAllProducts = () => {
+        fetch(
+            Config.ConfigData.serverURL +
+             `/product?search=${searchValue}`,
+              reqOptions
+            )
+        .then((response) => response.json())
+        .then((receivedData) => {
+            dispatch(setProducts(receivedData))
+        });
+    }
+    useEffect(() => {
+        getAllProducts()
+    }, [searchValue])
     return ( 
         <>
         <Header 
