@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { useSelector , useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectedProduct } from "../redux/actions/productActions";
+/* config */
+import Config from '../webpack.config'
 /* component */
 import {Header , BottomMenu} from '../components/navigation'
 /* style */
 import '../style/productDetails.css'
 
 const ProductDetails = () => {
-    const products = useSelector(state => state.allReducers.products)
     const product = useSelector(state => state.product)
     // const {
     //     attribute,
@@ -21,10 +22,25 @@ const ProductDetails = () => {
     // } = product
     const { productId } = useParams();
     const dispatch = useDispatch()
-    console.log(product[Object.keys(product)[0]])
+    // console.log(product[Object.keys(product)[0]])
+    const reqOptions = {
+        method: "Get",
+        headers: {
+          "Content-Type": "application/json",
+        }
+    };
     const getProductDetails = (id) =>{
-        const product = products.filter(product => product.id === id)
-        dispatch(selectedProduct(product))
+        let product;
+        fetch(
+            Config.ConfigData.serverURL +
+             `/product`,
+              reqOptions
+            )
+        .then((response) => response.json())
+        .then((receivedData) => {
+            product = receivedData.filter(product => product.id === id)
+            dispatch(selectedProduct(product))
+        });
     }
     useEffect(() => {
         getProductDetails(productId)
