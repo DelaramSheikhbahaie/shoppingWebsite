@@ -1,7 +1,5 @@
-import { useEffect } from "react";
-import { useSelector , useDispatch } from "react-redux";
+import { useEffect , useState } from "react";
 import { useParams } from "react-router-dom";
-import { selectedProduct } from "../redux/actions/productActions";
 /* config */
 import Config from '../webpack.config'
 /* component */
@@ -10,7 +8,8 @@ import {Header , BottomMenu} from '../components/navigation'
 import '../style/productDetails.css'
 
 const ProductDetails = () => {
-    const product = useSelector(state => state.product)
+    const [product, setProduct] = useState('')
+    // const product = useSelector(state => state.product)
     // const {
     //     attribute,
     //     description, 
@@ -21,8 +20,7 @@ const ProductDetails = () => {
     //     seller 
     // } = product
     const { productId } = useParams();
-    const dispatch = useDispatch()
-    // console.log(product[Object.keys(product)[0]])
+
     const reqOptions = {
         method: "Get",
         headers: {
@@ -39,7 +37,7 @@ const ProductDetails = () => {
         .then((response) => response.json())
         .then((receivedData) => {
             product = receivedData.filter(product => product.id === id)
-            dispatch(selectedProduct(product))
+            setProduct(product)
         });
     }
     useEffect(() => {
@@ -49,7 +47,7 @@ const ProductDetails = () => {
     return (
         <>
             <Header title="جزییات محصول" hasSearch={false}/>
-            {product !== undefined ?
+            {product !== '' ?
                 <div className="details-container">
                     <img src={product[Object.keys(product)[0]].image} alt="" />
                     <section className="product-name-seller-section">

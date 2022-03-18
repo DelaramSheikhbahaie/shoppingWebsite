@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { setProducts , setPreviwProducts } from '../redux/actions/productActions'
-import { useDispatch , useSelector } from "react-redux";
 /* config */
 import Config from '../webpack.config'
 /* icon */
@@ -10,10 +8,10 @@ import search from '../svg_files/search.svg'
 import '../style/search.css'
 
 const Search = () => {
+    const [products, setProducts] = useState('')
     const [searchValue, setSearchValue] = useState('')
     const [showResults, setShowResults] = useState(false)
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const handleSearch = (e) =>{
         if(e.target.value.length > 1){
@@ -45,7 +43,7 @@ const Search = () => {
             )
         .then((response) => response.json())
         .then((receivedData) => {
-            dispatch(setProducts(receivedData))
+            setProducts(receivedData)
         });
     }
 
@@ -59,6 +57,7 @@ const Search = () => {
             />
             <img src={search} alt="search" />
             {showResults && <SearchResults 
+                products= {products}
                 setShowResults= {setShowResults}
                 searchValue= {searchValue}
             />}
@@ -66,8 +65,7 @@ const Search = () => {
      );
 }
 
-const SearchResults = ({setShowResults , searchValue}) => {
-    const products = useSelector(state => state.allReducers.products)
+const SearchResults = ({products , setShowResults , searchValue}) => {
     const navigate = useNavigate();
     const showAllProducts = () => {
           setShowResults(false)
@@ -80,7 +78,7 @@ const SearchResults = ({setShowResults , searchValue}) => {
         <div className='blur-background'>
             <div className='search-results-container'>
                 {
-                products.length !== 0 ?
+                products !== '' ?
                 <>
                     {products.map(({id , name , seller} , index) =>(
                         index < 3 ?
