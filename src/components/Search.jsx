@@ -58,17 +58,20 @@ const Search = () => {
                 onKeyPress={EnterHandler}
             />
             <img src={search} alt="search" />
-            {showResults && <SearchResults setShowResults={setShowResults}/>}
+            {showResults && <SearchResults 
+                setShowResults= {setShowResults}
+                searchValue= {searchValue}
+            />}
         </div>
      );
 }
 
-const SearchResults = ({setShowResults}) => {
+const SearchResults = ({setShowResults , searchValue}) => {
     const products = useSelector(state => state.allReducers.products)
     const navigate = useNavigate();
     const showAllProducts = () => {
           setShowResults(false)
-          navigate('/products')
+          navigate(`/productsList/${searchValue}`)
     }
     const showProductDetails = (productId) =>{
         navigate(`/products/${productId}`)
@@ -78,7 +81,8 @@ const SearchResults = ({setShowResults}) => {
             <div className='search-results-container'>
                 {
                 products.length !== 0 ?
-                    products.map(({id , name , seller} , index) =>(
+                <>
+                    {products.map(({id , name , seller} , index) =>(
                         index < 3 ?
                             <>
                                 <div className='preview-results' 
@@ -89,8 +93,10 @@ const SearchResults = ({setShowResults}) => {
                                     <p className='preview-product-seller'>{seller}</p>
                                 </div>
                             </>
-                    :<p className='show-all-products' onClick={showAllProducts}>مشاهده ی همه ی محصولات</p>
-                    ))
+                    :null
+                    ))}
+                    <p className='show-all-products' onClick={showAllProducts}>مشاهده ی همه ی محصولات</p>
+                </>
                 :<p className='no-product-founded'>هیچ محصولی یافت نشد</p>
             }
             </div>
