@@ -8,7 +8,7 @@ function App() {
       <Router>
         <Routes>
           <Route path ="/" element = {<HomePage/>} />
-          <Route path ="/products/:searchValue" element = {<ProductList/>} />
+          <Route path ="/productsList/:searchValue" element = {<ProductList/>} />
           <Route path = "/products/:productId" element={<ProductDetails/>} />
           <Route>404 Not Found!</Route>
         </Routes>

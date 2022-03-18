@@ -28,7 +28,7 @@ const Search = () => {
     const EnterHandler = (e) => {
         if (e.key === "Enter") {
           setShowResults(false)
-          navigate(`/products/${searchValue}`)
+          navigate(`/productsList/${searchValue}`)
         }
     }
     const reqOptions = {
