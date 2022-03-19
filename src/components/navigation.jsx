@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 /* icons */
 import arrow from '../svg_files/arrow.svg'
 import bag from '../svg_files/bag.svg'
@@ -9,10 +10,11 @@ import '../style/navigation.css'
 import { Search } from './Search'
 
 const Header = ({title, hasSearch}) => {
+    const navigate = useNavigate();
     return ( 
         <>
             <div className='header'>
-                <img src={arrow} alt="" />
+                <img src={arrow} alt="" onClick={() => navigate(-1)}/>
                 <p>{title}</p>
             </div>
             {hasSearch && <Search/>}
