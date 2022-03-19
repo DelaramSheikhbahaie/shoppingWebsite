@@ -8,17 +8,7 @@ import {Header , BottomMenu} from '../components/navigation'
 import '../style/productDetails.css'
 
 const ProductDetails = () => {
-    const [product, setProduct] = useState('')
-    // const product = useSelector(state => state.product)
-    // const {
-    //     attribute,
-    //     description, 
-    //     image, 
-    //     material, 
-    //     name, 
-    //     price, 
-    //     seller 
-    // } = product
+    const [product, setProduct] = useState()
     const { productId } = useParams();
 
     const reqOptions = {
@@ -47,7 +37,7 @@ const ProductDetails = () => {
     return (
         <>
             <Header title="جزییات محصول" hasSearch={false}/>
-            {product !== '' ?
+            {product !== undefined ?
                 <div className="details-container">
                     <img src={product[Object.keys(product)[0]].image} alt="" />
                     <section className="product-name-seller-section">

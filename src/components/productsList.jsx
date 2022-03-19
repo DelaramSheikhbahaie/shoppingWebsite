@@ -9,7 +9,7 @@ import {Header , BottomMenu} from '../components/navigation'
 import '../style/productList.css'
 
 const ProductList = () => {
-    const [products, setProducts] = useState('')
+    const [products, setProducts] = useState()
     const navigate = useNavigate();
     const { searchValue } = useParams();
 
@@ -45,7 +45,7 @@ const ProductList = () => {
             />
         <section className="productList-container">
             <h5> تمام محصولات:</h5>
-            {products !== "" ?
+            {products !== undefined ?
                 products.map(({id , name , price , image}) =>(
                     <div 
                         className='preview-results' 

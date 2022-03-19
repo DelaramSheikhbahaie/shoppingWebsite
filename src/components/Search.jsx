@@ -8,7 +8,7 @@ import search from '../svg_files/search.svg'
 import '../style/search.css'
 
 const Search = () => {
-    const [products, setProducts] = useState('')
+    const [products, setProducts] = useState()
     const [searchValue, setSearchValue] = useState('')
     const [showResults, setShowResults] = useState(false)
     const navigate = useNavigate();
@@ -78,19 +78,18 @@ const SearchResults = ({products , setShowResults , searchValue}) => {
         <div className='blur-background'>
             <div className='search-results-container'>
                 {
-                products !== '' ?
+                products !== undefined ?
                 <>
                     {products.map(({id , name , seller} , index) =>(
                         index < 3 ?
-                            <>
+                            <div key={index}>
                                 <div className='preview-results' 
-                                    key={index} 
                                     onClick={()=>showProductDetails(id)}
                                 >
                                     <p className='preview-product-name'>{name}</p>
                                     <p className='preview-product-seller'>{seller}</p>
                                 </div>
-                            </>
+                            </div>
                     :null
                     ))}
                     <p className='show-all-products' onClick={showAllProducts}>مشاهده ی همه ی محصولات</p>
