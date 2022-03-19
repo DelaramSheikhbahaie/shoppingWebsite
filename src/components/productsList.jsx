@@ -1,7 +1,6 @@
 import { useEffect , useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import { useDispatch , useSelector } from "react-redux";
 /* config */
 import Config from '../webpack.config'
 /* component */
@@ -12,7 +11,6 @@ import '../style/productList.css'
 const ProductList = () => {
     const [products, setProducts] = useState('')
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const { searchValue } = useParams();
 
     const showProductDetails = (productId) =>{
