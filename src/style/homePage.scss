@@ -1,10 +1,4 @@
 @import 'variables';
-body{
-    direction: rtl;
-    background: #E5E5E5;
-    padding: 0;
-    margin: 0;
-}
 .homePage-container{
     padding:0 12px ;
     margin-bottom: 70px;
@@ -61,10 +55,5 @@ body{
 @each $key, $val in $iconBackgrounds {
     .icon-#{$key}{
         background: $val ;
-    }
-}
-@media screen and (min-width: 375px) {
-    body{
-        // margin: 0 300px;
     }
 }

@@ -1,0 +1,12 @@
+body{
+    direction: rtl;
+    background: #E5E5E5;
+    padding: 0;
+    margin: 0;
+}
+@media screen and (min-width: 375px) {
+    .app{
+        margin: 0 auto;
+        width: 375px;
+    }
+}

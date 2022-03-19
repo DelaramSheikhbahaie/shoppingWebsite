@@ -35,6 +35,7 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   position: fixed;
+  max-width: 375px;
   left: 3.2%;
   right: 3.2%;
   top: 89.78%;
